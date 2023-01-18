@@ -57,6 +57,8 @@ collapse (mean) NRA NRI RC RM NRM CU [aw  = weight], by(country occupation SOURC
 
 save "$workingdata/STEP_PIAAC_occupation_measure_USbmk_raw_noag.dta", replace
 
+
+
 preserve
 merge 1:1 country occupation using "$workingdata/ILO_Cleaned_by_Occ_2015_Imputed_noag.dta", nogen keep(3)
 collapse (mean) NRA NRI RC RM NRM CU [pweight = employshare], by(country SOURCE)
@@ -528,6 +530,7 @@ gen oweight=1
 collapse (mean) NRA NRI RC RM NRM CU (sum) oweight [aw  = weights_occ], by(country occupation SOURCE)
 
 save "$workingdata/STEP_PIAAC_occupation_measure_Predicted_USbmk_occ_raw_noag.dta", replace
+save "$workingdata/STEP_PIAAC_occupation_1digit_measure_Predicted_USbmk_occ_raw_noag.dta", replace
 restore
 
 ***************************
@@ -833,4 +836,5 @@ gen oweight=1
 collapse (mean) NRA NRI RC RM NRM CU (sum)oweight (first) occupation [aw  = weights_occ], by(country isco2c SOURCE)
 
 save "$workingdata/STEP_PIAAC_occupation_measure_Predicted_USbmk_occ2d_raw_noag.dta", replace
+save "$dataset/STEP_PIAAC_occupation_2digit_measure_Predicted_USbmk_occ_raw_noag.dta", replace
 restore

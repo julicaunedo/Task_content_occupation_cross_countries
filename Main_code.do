@@ -21,13 +21,15 @@ global figures      = "$replication/Figures"
 
 *** Data Preparation
 *
+do "$dofiles/[0.2] PIACC_Combine.do"
+
 do "$dofiles/[1.1] STEP.do"
 
 do "$dofiles/[1.2] PIAAC.do"
 
 do "$dofiles/[1.3.0] Construct_Crosswalk.do"
 
-do "$dofiles/[1.3] O*NET.do"
+do "$dofiles/[1.3] O_NET.do"
 
 do "$dofiles/[1.4] Supp_Statistics.do"
 
